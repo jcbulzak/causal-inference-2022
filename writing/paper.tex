@@ -31,52 +31,44 @@
 }
 
 % set the author, title, and date of the document. \maketitle adds it to the document.
-\author{Nathan Hattersley}
+\author{Jacob Bulzak}
 \title{My Paper on NLSY97 Data}
-\date{Sping 2022}
+\date{February 2022}
 
 \begin{document}
 \maketitle
 
-\section{The First Section}
+\section{Introduction}
 
-This is where I talk about basic \LaTeX. Using the \texttt{parskip} package, I can create a new paragraph by using line breaks, which I will do now.
+In this report we examine patterns in incarceration status by race and gender using the NLSY97 data from the year 2002. The analysis involved examining the incarceration status of  individuals in the dataset and tracking the mean number of months incarcerated for the year 2002 based on race and gender. We note that the average number of months incarcerated tends to be very low, as the majority of survey respondents were not incarcerated at all for the year 2002.
 
-I can also make cool equations inline by using parentheses{\textemdash}like this: \(x + 2\){\textemdash}or by using single dollar signs{\textemdash}like this: $x+2$. Parentheses are preferred because the left and right delimiter are distinct.
+We run the following regression:
 
-I can make cool equations in a block style by using the \texttt{equation} environment like so:
 \begin{equation*}
-    y = x\beta + \varepsilon
+    y = \beta_1 + \beta_2 Hispanic + \beta_3 Mixed Race (Non-Hispanic)+ \beta_4 Non-Black / Non-Hispanic + \beta_5 Male + \varepsilon
 \end{equation*}
-or by using double dollar signs:
-$$
-    y = x\beta + \varepsilon
-$$
 
-Again, the \texttt{equation} environment is preferred because the begin and end delimiters are different.
-
-I can also add a bibliography, but this is beyond the scope of our discussion right now. Overleaf has plenty of resources for this on their \href{https://www.overleaf.com/learn}{website}. Another good place to look for LaTeX help is the \href{https://en.wikibooks.org/wiki/LaTeX}{WikiBook} on it.
-
-\newpage
-
-\section{The Second Section}
-
-Wherein we do tables and graphs. To include the graph we made in ggplot, we create the \texttt{figure} environment. The `H' option tells LaTeX to `hold' the position of the figure instead of positioning it somewhere else. I use the \texttt{caption} command to add a caption{\textemdash}although I also put a title on the plot in ggplot so you would typically choose one or the other. I use the \texttt{label} command after the caption to add a label. Then in my paper I can use the \texttt{ref} command and LaTeX knows I am referring to Figure \ref{fig:graph}.
+\section{Analysis}
 
 
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=.85\textwidth]{arrests_by_racegender}
     \end{center}
-    \caption{Mean Number of Arrests in 2002 by Race and Gender (this is the LaTeX caption, not the ggplot title)}
+    \caption{Mean Number of Months Incarcerated in 2002 by Race and Gender}
     \label{fig:graph}
 \end{figure}
 
-
-Tables are somewhat easier, since \texttt{kableExtra} and \texttt{stargazer} generate LaTeX code that is ready to just ``copy-paste'' into our document. The \texttt{label} argument in the R code is the label that the table will have in the tex output, if you want to \texttt{ref} it.
+The above graph shows the mean number of incracerations in 2002 by race and broken down by gender. In every category, (except for Mixed Race (Non-Hispanic)) the mean number of months incarcerted is higher for males than for females. In fact, Mixed Race Non-Hispanic males have a mean incarcertion time of zero months. Finally, we observe that the average duration of incarceration for Black males is much higher than for any other category.
 
 \input{../tables/arrests_by_racegender.tex}
 
+Table 1 serves as numeric representation of Figure 1. The table reiterates the results seen in the graph above: Black males exhibit the maximum mean incarceration time, whereas Mixed Race Non-Hispanic males spent no time incarcerated in 2002, on average.
+
 \input{../tables/regress_arrests_by_racegender.tex}
 
+Table 2 summarizes the results of a the regression introduced in Section 1 that shows the effects of race and gender on mean incarceration time. We note that the model's coefficient of determination (i.e. R-squared) is 0.015. This indicates a only a very small proportion of the variation in incarceration time is predictable from our covariates, implying a poor model fit. Conversely, each of the p-values associated with the covariate coefficients is significant at the 1 percent level. This tell us that changes in race and gender are associated with changes in incarceration time, and furthermore, that these covariates indeed belong in our regression. The table also demonstrates being Black is the biggest factor in race, since it is the omitted variable in our regression and all other races have negative coefficients associate with them. Specifically, being a black male corresponds to, on average, a 0.194-month increase in time incarcerated. Finally, we note that the regression intercept (constant) represents the average number of months incarcerated for a Black female.
+
+
 \end{document}
+
