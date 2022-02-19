@@ -40,7 +40,7 @@
 
 \section{Introduction}
 
-In this report we examine patterns in incarceration status by race and gender using the NLSY97 data from the year 2002. The analysis involved examining the incarceration status of  individuals in the dataset and tracking the mean number of months incarcerated for the year 2002 based on race and gender. We note that the average number of months incarcerated tends to be very low, as the majority of survey respondents were not incarcerated at all for the year 2002.
+In this report we examine patterns in incarceration status by race and gender using the NLSY97 data from the year 2002. The analysis involved examining the incarceration status of individuals in the dataset and tracking the mean number of months incarcerated for the year 2002 based on race and gender. We note that the average number of months incarcerated tends to be very low, as the majority of survey respondents were not incarcerated at all for the year 2002.
 
 We run the following regression:
 
@@ -59,15 +59,15 @@ We run the following regression:
     \label{fig:graph}
 \end{figure}
 
-The above graph shows the mean number of incracerations in 2002 by race and broken down by gender. In every category, (except for Mixed Race (Non-Hispanic)) the mean number of months incarcerted is higher for males than for females. In fact, Mixed Race Non-Hispanic males have a mean incarcertion time of zero months. Finally, we observe that the average duration of incarceration for Black males is much higher than for any other category.
+The above graph shows the mean number of incarcerations in 2002 by race and broken down by gender. In every category, (except for Mixed Race (Non-Hispanic)) the mean number of months incarcerated is higher for males than for females. In fact, Mixed Race Non-Hispanic males have a mean incarceration time of zero months. Finally, we observe that the average duration of incarceration for Black males is much higher than for any other category.
 
 \input{../tables/table_incarcerated_by_racegender.tex}
 
-Table 1 serves as numeric representation of Figure 1. The table reiterates the results seen in the graph above: Black males exhibit the maximum mean incarceration time, whereas Mixed Race Non-Hispanic males spent no time incarcerated in 2002, on average.
+Table 1 serves as numeric representation of Figure 1. The table reiterates the results seen in the graph above: Black males exhibit the maximum mean incarceration time, whereas Mixed Race Non-Hispanic males zero months incarcerated in 2002, on average.
 
 \input{../tables/regress_incarcerated_by_racegender.tex}
 
-Table 2 summarizes the results of a the regression introduced in Section 1 that shows the effects of race and gender on mean incarceration time. We note that the model's coefficient of determination (i.e. R-squared) is 0.015. This indicates a only a very small proportion of the variation in incarceration time is predictable from our covariates, implying a poor model fit. Conversely, each of the p-values associated with the covariate coefficients is significant at the 1 percent level. This tell us that changes in race and gender are associated with changes in incarceration time, and furthermore, that these covariates indeed belong in our regression. The table also demonstrates being Black is the biggest factor in race, since it is the omitted variable in our regression and all other races have negative coefficients associate with them. Specifically, being a black male corresponds to, on average, a 0.194-month increase in time incarcerated. Finally, we note that the regression intercept (constant) represents the average number of months incarcerated for a Black female.
+Table 2 summarizes the results of a the regression introduced in Section 1 that relates race and gender to incarceration time. We note that the model's coefficient of determination (i.e. R-squared) is 0.015. This indicates only a very small proportion of the variation in incarceration time is predictable from our covariates, implying a poor model fit. Conversely, each of the p-values associated with the covariate coefficients is significant at the 1 percent level. This tell us that changes in race and gender are indeed associated with changes in incarceration time, and furthermore, that these covariates belong in our regression. The table also demonstrates being Black is the greatest contributor to incarceration time given that it is the omitted variable in our regression and all other races have negative coefficients associated with them. Specifically, being a black male corresponds to, on average, a 0.194-month increase in time incarcerated. Finally, we note that the regression intercept (constant) represents the average number of months incarcerated for a Black female.
 
 
 \end{document}
