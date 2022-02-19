@@ -25,4 +25,4 @@ read_csv(here("data/NLSY97_clean.csv")) %>%
   ) %>%
   kable_styling(latex_options = c("striped", "HOLD_position")) %>%
   
-  write_lines(here("tables/arrests_by_racegender.tex"))
+  write_lines(here("tables/table_incarcerated_by_racegender.tex"))
